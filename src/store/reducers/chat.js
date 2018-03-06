@@ -84,9 +84,12 @@ export function sendMsg ({from, to, content}) {
 
 export function receiveMsg () {
 	return (dispatch, getState) => {
-		socket.on('receivemsg', function (data) {
-			const userId = getState().userReducer._id
-			dispatch(msgRecv({msg: data, userId}))
-		})
+		// 确保进入应用只建立一次收听广播
+		if (socket.connected !== true) {
+			socket.on('receivemsg', function (data) {
+				const userId = getState().userReducer._id
+				dispatch(msgRecv({msg: data, userId}))
+			})
+		}
 	}
 }

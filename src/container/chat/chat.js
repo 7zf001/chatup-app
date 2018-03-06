@@ -53,11 +53,7 @@ class Chat extends Component {
 			this.props.getMsgList()
 			this.props.receiveMsg()
 		}
-		document.addEventListener('keypress', event => {
-			if (event.key === 'Enter') {
-				this.handleSubmit()
-			}
-		})
+
 		this.scrollToDown()
 	}
 
@@ -74,7 +70,6 @@ class Chat extends Component {
 	}
 	
 	scrollToDown() {
-		console.log('do')
 		var el2 = document.querySelector('.wrap-scroll')
 		if (el2) {
 			setTimeout(function () {
@@ -102,7 +97,7 @@ class Chat extends Component {
 				<NavBar
 				  className="fixd-header"
 					icon={<Icon type="left"/>}
-					onLeftClick={ () => {this.props.history.goBack()}}
+					onLeftClick={this.props.history.goBack}
 				>
 					{toUser.name}&nbsp;{toUser.company}
 				</NavBar>
