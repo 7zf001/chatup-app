@@ -6,8 +6,8 @@
       "env": {
         "COMMON_VARIABLE": "true"
       },
-      "exec_interpreter": "bable-node",
       "env_production": {
+        "PORT": "9093",
         "NODE_ENV": "production"
       }
     }

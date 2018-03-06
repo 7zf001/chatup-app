@@ -1,14 +1,14 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
-import path from 'path'
-import userRouter from './user.js'
-import Model from './model'
+const express require('express')
+const bodyParser require('body-parser')
+const cookieParser require('cookie-parser')
+const path require('path')
+const userRouter require('./user.js')
+const Model require('./model')
 
-import React from 'react'
-import {renderToString, renderToStaticMarkup} from 'react-dom/server'
+/*import React from 'react'
+import {renderToString, renderToStaticMarkup} from 'react-dom/server'*/
 
-const app = express();
+const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const Chat = Model.getModel('chat')
