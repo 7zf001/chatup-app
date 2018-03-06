@@ -2,10 +2,11 @@
   "apps": [
     {
       "name": "chatup-app",
-      "script": "app.js",
+      "script": "/server/server.js",
       "env": {
         "COMMON_VARIABLE": "true"
       },
+      "exec_interpreter": "bable-node",
       "env_production": {
         "NODE_ENV": "production"
       }
@@ -17,7 +18,7 @@
       "host": ["111.230.239.13"],
       "port": "44068",
       "ref": "origin/master",
-      "repo": "git@gitee.com:jefftam/chatup.git",
+      "repo": "git@gitee.com:jefftam/chatup-app.git",
       "path": "/www/chatup-app/production",
       "ssh_option": "StrictHostKeyChecking=no",
       "post-deploy": "npm install --registry=https://registry.npm.taobao.org && npm run build && pm2 startOrRestart ecosystem.json --env production",
