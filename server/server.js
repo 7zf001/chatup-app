@@ -1,9 +1,9 @@
-const express require('express')
-const bodyParser require('body-parser')
-const cookieParser require('cookie-parser')
-const path require('path')
-const userRouter require('./user.js')
-const Model require('./model')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const path = require('path')
+const userRouter = require('./user.js')
+const Model = require('./model')
 
 /*import React from 'react'
 import {renderToString, renderToStaticMarkup} from 'react-dom/server'*/
