@@ -8,6 +8,8 @@ const MSG_LIST = 'MSG_LIST'
 const MSG_RECV = 'MSG_RECV'
 // 标识已读
 const MSG_SET_READ = 'MSG_SET_READ'
+// 退出清空数据
+const CLEAR_DATA = 'CLEAR_DATA'
 
 const initState = {
 	chatmsg: [],
@@ -33,7 +35,9 @@ export function chatReducer (state = initState, action) {
 			return { ...state, unread: state.unread - action.payload.modifidNum, chatmsg: state.chatmsg.map( v => {
 					if (v.from === action.payload.from) v.read = true
 					return v
-				} )}				
+				} )}
+		case CLEAR_DATA:
+			return { ...initState }				
 		default:
 			return state
 	}
@@ -50,6 +54,10 @@ function msgRecv ({ msg, userId }) {
 
 function msgRead ({from, userId, modifidNum}) {
 	return { type: MSG_SET_READ, payload: {from, userId, modifidNum} }
+}
+
+export function clearData () {
+	return {type: CLEAR_DATA}
 }
 
 export function readMsg (from, userId) {

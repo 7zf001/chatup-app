@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import BrowserCookies from 'browser-cookies'
 import { logout } from '../../store/reducers/user'
+import { clearData } from '../../store/reducers/chat'
 
 @withRouter
 @connect(
 	state => state.userReducer,
-	{ logout }
+	{ logout, clearData }
 )
 
 class User extends Component {
@@ -27,6 +28,7 @@ class User extends Component {
 			{text: '确认', onPress: () => {
 				BrowserCookies.erase('userId');
 				this.props.logout()
+				this.props.clearData()
 				this.props.history.push('/login')
 			}}
 		])
