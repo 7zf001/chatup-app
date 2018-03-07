@@ -69,7 +69,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "server_windows": "cross-env NODE_ENV=test nodemon --exec babel-node server/server.js",
-    "server": "NODE_ENV=test nodemon --exec babel-node server/server.js",
+    "server": "NODE_ENV=production pm2 start --interpreter babel-node server/server.js",
     "server1": "nodemon server/server.js"
   },
   "jest": {
