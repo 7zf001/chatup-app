@@ -1,5 +1,6 @@
 {
   "presets": [
+    "react-app",
     "es2015"
   ],
   "plugins": [
@@ -14,4 +15,4 @@
       "transform-decorators-legacy"
     ]
   ]
-}
+},
