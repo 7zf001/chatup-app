@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { NavBar } from 'antd-mobile'
 import { connect } from 'react-redux'
 import NavLink from '../../components/navlink/navlink'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import Boss from '../boss/boss'
 import Genius from '../genius/genius'
 import User from '../user/user'
@@ -57,24 +57,23 @@ class Dashboard extends Component {
 			}
 		]
 
-		const findNav = navList.find( v => v.path === this.props.location.pathname)
-		const pageTitle = !findNav ? '' : findNav.title
+		const page = navList.find( v => v.path === this.props.location.pathname)
 
-		return (
+		return page ? (
 			<div>
-				<NavBar className="fixd-header">{ pageTitle || '' }</NavBar>
+				<NavBar className="fixd-header">{page.title}</NavBar>
 				
 				<div className="dashboard-container">
 					<QueueAnim type='left' duration={800}>
-						{findNav ? 
-							<Route key={findNav.path} path={findNav.path} component={findNav.component}/>
+						{page ? 
+							<Route key={page.path} path={page.path} component={page.component}/>
 							: ''}
 					</QueueAnim>					
 				</div>
 
 				<NavLink data={navList}/>
 			</div>
-		)
+		) : <Redirect to="/msg"></Redirect>
 	}
 }
 

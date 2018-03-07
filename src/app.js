@@ -9,9 +9,22 @@ import Chat from './container/chat/chat'
 import { Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
+	constructor (props) {
+		super(props)
+		this.state = {
+			hasError: false
+		}
+	}
+
+	componentDidCatch (error, info) {
+		console.log(error, info)
+		this.setState({hasError: true})
+	}
+
 	render () {
-		return (
-			
+		return this.state.hasError 
+		? <img className="errorimg" src={require('./error.png')} alt="error"/>
+		: (
 			<div>
 				<AuthRouter />{/* 进入页面时运行验证 */}
 				<Switch>
@@ -23,7 +36,6 @@ class App extends React.Component {
 					<Route component={Dashboard}/>
 				</Switch>
 			</div>
-
 		)
 	}
 }

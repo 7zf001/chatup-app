@@ -8,7 +8,7 @@ import store from './store/index'
 import './config'
 import './index.css'
 
-ReactDom.render(
+ReactDom.hydrate(
 	(
 		<Provider store={store}>
 			<BrowserRouter>

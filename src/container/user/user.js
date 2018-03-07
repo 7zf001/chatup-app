@@ -59,7 +59,7 @@ class User extends Component {
 					<Button type="primary" onClick={this.logout}>注销登录</Button>
 				</div>
 			)
-			: null
+			: '加载中......'
 		)
 	}
 }

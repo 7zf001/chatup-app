@@ -15,7 +15,7 @@ require('asset-require-hook')({
 
 import csshook from 'css-modules-require-hook/preset' // import hook before routes
 import React from 'react'
-import {renderToString, renderToStaticMarkup} from 'react-dom/server'
+import { renderToNodeStream } from 'react-dom/server'
 import { Provider } from 'react-redux'
 import { StaticRouter } from 'react-router-dom'
 import store from '../src/store/index'
@@ -57,18 +57,7 @@ app.use(function (req, res, next) {
 	
 	let context = {}
 
-	const markup = renderToString(
-		<Provider store={store}>
-			<StaticRouter
-				location={req.url}
-				context={context}
-			>
-				<App />
-			</StaticRouter>
-		</Provider>
-	)
-		
-	const layout = `
+	res.write(`
 <!DOCTYPE html>
 <html lang="ch">
   <head>
@@ -82,13 +71,30 @@ app.use(function (req, res, next) {
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root">${markup}</div>
+    <div id="root">
+`)
+
+	const markupStream = renderToNodeStream(
+		<Provider store={store}>
+			<StaticRouter
+				location={req.url}
+				context={context}
+			>
+				<App />
+			</StaticRouter>
+		</Provider>
+	)
+	
+	markupStream.pipe(res, {end: false})
+	markupStream.on('end', function () {
+		res.write(`</div>
     <script src="/${mainfest['main.js']}"></script>
   </body>
-</html>
-`
+</html>`)
+		res.end()
+	})
 
-	res.send(layout)
+	//res.send(layout)
 
 	//return res.sendFile(path.resolve('build/index.html'))
 })
