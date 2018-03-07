@@ -3,11 +3,14 @@ import { List, Badge } from 'antd-mobile'
 import { connect } from 'react-redux'
 
 @connect(
-	state => state,
-	null
+	state => state
 )
 
 class Msg extends Component {
+	constructor(props) {
+		super(props)
+	}
+
 	render() {
 		const Item = List.Item
 		const Brief = Item.Brief
