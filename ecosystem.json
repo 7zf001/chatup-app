@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "chatup-app",
-      "script": "/server/server.js",
+      "script": "./server/server.js",
       "exec_interpreter": "babel-node",
       "exec_mode"  : "fork_mode",
       "env": {
