@@ -9,7 +9,7 @@ DB_URL = 'mongodb://127.0.0.1:27017/chatup-app';
 if (env === 'production') {
 	DB_URL = 'mongodb://appadmin:App123$@127.0.0.1:27017/chatup-app';	
 }
-
+console.log(DB_URL)
 mongoose.connect(DB_URL);
 
 // listen 监听连接成功之后console.log
