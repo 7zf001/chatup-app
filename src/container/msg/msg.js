@@ -31,14 +31,16 @@ class Msg extends Component {
 						let latestChat = v[v.length - 1]
 						// 获取对方的id,如果首次是我发送的，则获取对方id，如果是对方发送的，则获取对方
 						let targetId = v[0].from === myId ? v[0].to : v[0].from
+
 						let targetUser = users[targetId]
-						let avatar = targetUser.avatar || 'man'
-						let unreadCount = v.filter( v =>  v.to === myId && !v.read).length
-						
+
 						if (!targetUser) {
 							return null
 						}
 
+						let avatar = targetUser.avatar || 'man'
+						let unreadCount = v.filter( v =>  v.to === myId && !v.read).length
+						
 						return (
 							<List 
 								key={latestChat._id}
