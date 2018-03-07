@@ -1,6 +1,6 @@
 import axios from 'axios'
 import io from 'socket.io-client'
-const socket = io.connect()
+const socket = io('http://localhost:9093')
 
 // 获取聊天列表
 const MSG_LIST = 'MSG_LIST'
