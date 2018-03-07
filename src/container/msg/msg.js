@@ -7,10 +7,6 @@ import { connect } from 'react-redux'
 )
 
 class Msg extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		const Item = List.Item
 		const Brief = Item.Brief
