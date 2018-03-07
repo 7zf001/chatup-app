@@ -1,7 +1,7 @@
 import axios from 'axios'
 import io from 'socket.io-client'
 
-const socket = io('ws://127.0.0.1:9093')
+const socket = io('ws://111.230.239.13:9093')
 
 // 获取聊天列表
 const MSG_LIST = 'MSG_LIST'

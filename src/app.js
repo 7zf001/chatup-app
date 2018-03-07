@@ -16,10 +16,10 @@ class App extends React.Component {
 		}
 	}
 
-	/*componentDidCatch (error, info) {
+	componentDidCatch (error, info) {
 		console.log(error, info)
 		this.setState({hasError: true})
-	}*/
+	}
 
 	render () {
 		return this.state.hasError 
