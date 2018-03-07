@@ -8,6 +8,7 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const Chat = Model.getModel('chat')
+const PORT = process.env.PORT || 9093;
 
 require('asset-require-hook')({
   extensions: ['jpg', 'jpeg', 'png']
@@ -100,6 +101,6 @@ app.use(function (req, res, next) {
 })
 app.use('/', express.static(path.resolve('build')))
 
-server.listen(9093, function () {
+server.listen(PORT, function () {
 	console.log('Node app start at port 9093')
 })

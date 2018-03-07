@@ -68,7 +68,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "server_windows": "cross-env NODE_ENV=test nodemon --exec babel-node server/server.js",
+    "server_window": "cross-env NODE_ENV=test nodemon --exec babel-node server/server.js",
     "server": "NODE_ENV=production pm2 startOrRestart --interpreter babel-node server/server.js",
     "server1": "nodemon server/server.js"
   },
@@ -104,23 +104,6 @@
       "web.jsx",
       "jsx",
       "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ],
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd-mobile",
-          "style": "css"
-        }
-      ],
-      [
-        "transform-decorators-legacy"
-      ]
     ]
   },
   "eslintConfig": {

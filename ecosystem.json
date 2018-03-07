@@ -3,7 +3,7 @@
     {
       "name": "chatup-app",
       "script": "./server/server.js",
-      "interpreter": "./node_modules/.bin/babel-node",
+      "node_args": "--harmony",
       "exec_mode"  : "fork_mode",
       "env": {
         "COMMON_VARIABLE": "true"
