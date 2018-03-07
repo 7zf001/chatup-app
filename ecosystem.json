@@ -23,7 +23,7 @@
       "repo": "git@gitee.com:jefftam/chatup-app.git",
       "path": "/www/chatup-app/production",
       "ssh_option": "StrictHostKeyChecking=no",
-      "post-deploy": "npm install && npm run build && npm run server",
+      "post-deploy": "npm install && npm run build",
       "env": {
         "NODE_ENV": "production"
       }
