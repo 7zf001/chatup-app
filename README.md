@@ -1,5 +1,9 @@
 # Chatup -- 招聘聊天应用
 
+[线上测试](http://111.230.239.13)
+user: test
+pwd: 12345
+
 # 技术栈
 
 - [x] react 构建前端页面架构
@@ -63,3 +67,16 @@
 +-- package.json
 +-- README.md
 ```
+
+引入antd-mobile，并且[实现按需加载](https://mobile.ant.design/docs/react/introduce-cn)
+使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）
+
+# 部署项目
+
+在部署项目这块使用了pm2来管理我们的node应用，并且使用ecosystem实现一键部署。
+
+在服务器渲染这块花了挺长的时间，最后用了babel-node来进行服务端代码的转码工作，[但是官方是不推荐这样做的](https://babeljs.io/docs/usage/cli/#babel-node)，后续会思考怎么做会更加好。
+
+使用nginx进行反向代理，将默认80端口指向了node项目端口，然后node服务端添加中间件进行路由拦截，并且用了React16的新方法[renderToNodeStream](https://reactjs.org/docs/react-dom-server.html#rendertonodestream)直接渲染到节点流，渲染到流可以减少你的内容的第一个字节（TTFB）的时间，在文档的下一部分生成之前，将文档的开头至结尾发送到浏览器。 当内容从服务器流式传输时，浏览器将开始解析HTML文档。
+
+客户端使用注水(hydrate)操作。
