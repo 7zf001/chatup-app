@@ -1,3 +1,19 @@
+.loginForm {
+	display: inline-block;
+	width: 100vw;
+	height: 100vh;
+	background: #92c7c7;
+}
+
+.am-list-item {
+	background: none !important;
+}
+
+.loginImage {	
+	display: block;
+	margin: 45px auto;
+}
+
 .errorimg {
 	position: absolute;
 	top: 0;

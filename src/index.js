@@ -7,6 +7,7 @@ import store from './store/index'
 
 import './config'
 import './index.css'
+import './iconfont/iconfont.css'
 
 ReactDom.hydrate(
 	(

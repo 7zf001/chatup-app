@@ -75,7 +75,7 @@ class Chat extends Component {
 		if (el2) {
 			setTimeout(function () {
 				el2.scrollTop = el2.scrollHeight
-			}, 100)
+			}, 500)
 		}
 	}
 

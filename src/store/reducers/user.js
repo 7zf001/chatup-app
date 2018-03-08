@@ -7,6 +7,8 @@ const ERROR_MSG = 'ERROR_MSG'
 
 const LOGOUT = 'LOGOUT'
 
+const CLEAR_MSG = 'CLEAR_MSG'
+
 const initState = {
 	redirectTo: '',
 	username: '',
@@ -23,7 +25,9 @@ export function userReducer(state = initState, action) {
 		case ERROR_MSG:
 			return { ...state, msg: action.payload.msg }
 		case LOGOUT:
-			return { ...initState }			
+			return { ...initState }	
+		case CLEAR_MSG:
+			return { ...state, msg: ''}		
 		default:
 			return state;
 	}
@@ -36,6 +40,10 @@ function authSuccess(data) {
 
 function errorMsg(msg) {
 	return {type: ERROR_MSG, payload: { msg }}
+}
+
+export function clearMsg() {
+	return { type: CLEAR_MSG }
 }
 
 export function logout() {

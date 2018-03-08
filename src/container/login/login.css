@@ -1,0 +1,16 @@
+.submitBtn {
+	margin: 40px;
+	border-radius: 20px;
+}
+
+.loginList {
+	border-bottom: none !important;
+	background: #71b3b3;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.loginErrorMsg {
+	text-align: center;
+	font-size: 18px;
+}
