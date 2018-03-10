@@ -65,7 +65,7 @@ app.use(function (req, res, next) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <title>乱up廿四</title>
+    <title>Chatup</title>
     <link rel="stylesheet" href="/${mainfest['main.css']}" />
   </head>
   <body>
