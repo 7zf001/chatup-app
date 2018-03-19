@@ -1,8 +1,8 @@
 # Chatup -- 招聘聊天应用
 
-[线上测试](http://111.230.239.13)
+[线上测试](http://www.tanzhifeng.top)
 user: test
-pwd: 12345
+pwd: test
 
 # 技术栈
 
