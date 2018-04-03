@@ -1,6 +1,6 @@
 # Chatup -- 招聘聊天应用
 
-[线上测试](http://www.tanzhifeng.top)
+[线上测试](https://www.tanzhifeng.top)
 user: test
 pwd: test
 
