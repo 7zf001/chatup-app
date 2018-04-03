@@ -19,7 +19,7 @@ class Chat extends Component {
 			showCarousel: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
-		this.scrollToDown = this.scrollToDown.bind(this)
+		this.scrollToDown = this.scrollToDown.bind(this)		
 	}
 
 	handleChange(v) {
@@ -44,16 +44,26 @@ class Chat extends Component {
 			text: '',
 			showCarousel: false
 		})
-
+		
 		this.scrollToDown()
 	}
 
 	componentDidMount() {
-		if (!this.props.chatReducer.chatmsg.length) {
-			this.props.getMsgList()
-			this.props.receiveMsg()
+		var _this = this
+		if (!_this.props.chatReducer.chatmsg.length) {
+			_this.props.getMsgList()
+			_this.props.receiveMsg()
 		}
 
+		_this.scrollToDown()
+
+		window.addEventListener('resize', function(){
+			document.body.scrollTop = document.body.scrollHeight;
+			_this.scrollToDown()
+		})
+	}
+
+	componentDidUpdate() {
 		this.scrollToDown()
 	}
 
@@ -71,11 +81,11 @@ class Chat extends Component {
 	
 	scrollToDown() {
 		var el2 = document.querySelector('.wrap-scroll')
-		
+
 		if (el2) {
 			setTimeout(function () {
 				el2.scrollTop = el2.scrollHeight
-			}, 300)
+			}, 1000)
 		}
 	}
 
@@ -103,28 +113,28 @@ class Chat extends Component {
 					{toUser.name}&nbsp;{toUser.company}
 				</NavBar>
 		
-				<div className="wrap-scroll" ref={this.scrollToDown}>
+				<div className="wrap-scroll">
 					<List>
 						{ currentChatMsgs.map( v => (
-							v.from === id ? (
-								<Item
-									key={v._id}
-					                multipleLine={true}
-					                wrap={true}
-									className="chat-me"
-									extra={<img alt="avatar" src={require(`../../components/img/${this.props.userReducer.avatar}.png`)}/>}
-								>{v.content}</Item>
-							) : (
-								<Item 
-									key={v._id}
-									multipleLine={true}
-									wrap={true}
-									thumb={require(`../../components/img/${toUser.avatar}.png`)}
-								>
-									{v.content}
-								</Item>
-							)
-						))}
+								v.from === id ? (
+									<Item
+										key={v._id}
+		                multipleLine={true}
+		                wrap={true}
+										className="chat-me"
+										extra={<img alt="avatar" src={require(`../../components/img/${this.props.userReducer.avatar}.png`)}/>}
+									>{v.content}</Item>
+								) : (
+									<Item 
+										key={v._id}
+										multipleLine={true}
+										wrap={true}
+										thumb={require(`../../components/img/${toUser.avatar}.png`)}
+									>
+										{v.content}
+									</Item>
+								)
+							))}
 					</List>
 					
 				</div>
