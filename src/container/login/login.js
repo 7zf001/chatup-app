@@ -33,6 +33,11 @@ class Login extends Component {
 		this.props.signin({ username, password, type })
 	}
 	
+	componentDidMount() {
+		var loginForm = document.querySelector('.loginForm');
+		loginForm.style.height = document.documentElement.clientHeight + 'px';
+	}
+
 	componentDidUpdate() {
 		this.props.msg && Toast.fail(this.props.msg, 1, this.toDoClearMsg)
 	}

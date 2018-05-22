@@ -20,12 +20,20 @@ class Chat extends Component {
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.scrollToDown = this.scrollToDown.bind(this)		
+		this.clickInput = this.clickInput.bind(this)		
 	}
 
 	handleChange(v) {
 		this.setState({
 			text: v
 		})
+	}
+	
+	clickInput() {
+		var stickFooter = document.querySelector('.stick-footer');
+		setTimeout(() => {
+			stickFooter.scrollIntoView()
+		}, 200)
 	}
 
 	handleSubmit() {
@@ -144,12 +152,13 @@ class Chat extends Component {
 						<InputItem 
 							placeholder="请输入"
 							onChange={v => {this.handleChange(v)}}
+							onClick={this.clickInput}
 							extra={
-								<div>
+								<div className="stick-footer-side">
 									<span 
+										className="emojiIcon"
 									  aria-label="emoji"
 									  role="img"
-									  style={{marginRight: 15}} 
 									  onClick={ () => {
 										this.setState({
 											showCarousel: !this.state.showCarousel

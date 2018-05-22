@@ -1,7 +1,9 @@
+html, body {
+ height: 100%;
+}
 .loginForm {
 	display: inline-block;
 	width: 100vw;
-	height: 100vh;
 	background: #92c7c7;
 }
 
@@ -9,6 +11,13 @@
 	background: none !important;
 }
 
+.am-input-control {
+	height: 100%;
+	font-size: 12px !important;
+}
+.am-input-control input {
+	height: 100%;
+}
 .loginImage {	
 	display: block;
 	margin: 45px auto;
@@ -71,7 +80,13 @@
 	bottom: 0;
 	width:100%;
 }
-
+.am-list-item .am-input-extra {
+	overflow: visible;
+	max-height: 100%;
+}
+.emojiIcon {
+	margin-right: 15px;
+}
 .wrap-scroll {
 	position: absolute;
 	top: 45px;
